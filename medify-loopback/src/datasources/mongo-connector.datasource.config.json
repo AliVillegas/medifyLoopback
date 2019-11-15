@@ -1,0 +1,11 @@
+{
+    "name": "MongoConnector",
+    "connector": "mongodb",
+    "url": "mongodb+srv://medifyAdmin:admin_medify.io_34@cluster0-wflk5.mongodb.net/Medify?",
+    "host": "cluster0-wflk5.mongodb.net",
+    "port": 27017,
+    "user": "medifyAdmin",
+    "password": "admin_medify.io_34",
+    "database": "Medify",
+    "useNewUrlParser": true
+}
