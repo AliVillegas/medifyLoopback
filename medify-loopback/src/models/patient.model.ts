@@ -1,4 +1,6 @@
 import {Entity, model, property} from '@loopback/repository';
+import {Prescription} from './prescription.model';
+import {Appointment} from './appointment.model';
 
 @model()
 export class Patient extends Entity {
@@ -11,7 +13,7 @@ export class Patient extends Entity {
   @property({
     type: 'string',
   })
-  email?: string;
+  cognitoId?: string;
 
   @property({
     type: 'string',
@@ -24,7 +26,7 @@ export class Patient extends Entity {
     type: 'array',
     itemType: 'object',
   })
-  appointments?: object[];
+  appointments?: Appointment[];
 
   @property({
     type: 'string',
@@ -62,7 +64,7 @@ export class Patient extends Entity {
     type: 'array',
     itemType: 'object',
   })
-  prescriptions?: object[];
+  prescriptions?: Prescription[];
 
   constructor(data?: Partial<Patient>) {
     super(data);

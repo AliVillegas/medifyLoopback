@@ -61,6 +61,17 @@ export class Prescription extends Entity {
   })
   meds?: object[];
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  patientId: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  doctorId: string;
 
   constructor(data?: Partial<Prescription>) {
     super(data);

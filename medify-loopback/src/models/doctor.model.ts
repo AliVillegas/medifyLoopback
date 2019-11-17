@@ -1,4 +1,5 @@
 import {Entity, model, property} from '@loopback/repository';
+import {Appointment} from './appointment.model';
 
 @model()
 export class Doctor extends Entity {
@@ -18,7 +19,7 @@ export class Doctor extends Entity {
   @property({
     type: 'string',
   })
-  email?: string;
+  cognitoId?: string;
 
   @property({
     type: 'string',
@@ -36,7 +37,7 @@ export class Doctor extends Entity {
     type: 'array',
     itemType: 'object',
   })
-  appointments?: object[];
+  appointments?: Appointment[];
 
   constructor(data?: Partial<Doctor>) {
     super(data);

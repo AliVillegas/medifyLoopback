@@ -51,10 +51,17 @@ export class Appointment extends Entity {
   })
   id?: string;
 
+  @property({
+    type: 'object',
+    required: false,
+  })
+  doctor: object;
 
-  constructor(data?: Partial<Appointment>) {
-    super(data);
-  }
+  @property({
+    type: 'object',
+    required: false,
+  })
+  patient: object;
 }
 
 export interface AppointmentRelations {
