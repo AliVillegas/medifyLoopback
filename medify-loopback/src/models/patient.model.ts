@@ -61,6 +61,12 @@ export class Patient extends Entity {
   notes?: string;
 
   @property({
+    type: 'string',
+    required: false,
+  })
+  gender: string;
+
+  @property({
     type: 'array',
     itemType: 'object',
   })
