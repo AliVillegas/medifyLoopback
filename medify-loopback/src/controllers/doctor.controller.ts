@@ -32,6 +32,18 @@ export class DoctorController {
         description: 'Doctor model instance',
         content: {'application/json': {schema: getModelSchemaRef(Doctor)}},
       },
+      '400': {
+        description: 'Bad request, Doctor POST Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Doctor POST Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Doctor POST Failed',
+      },
+      '500': {
+        description: 'Internal server error, Doctor POST Failed',
+      },
     },
   })
   async create(
@@ -55,6 +67,18 @@ export class DoctorController {
         description: 'Doctor model count',
         content: {'application/json': {schema: CountSchema}},
       },
+      '400': {
+        description: 'Bad request, Doctor GET Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Doctor GET Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Doctor GET Failed',
+      },
+      '500': {
+        description: 'Internal server error, Doctor GET Failed',
+      },
     },
   })
   async count(
@@ -73,6 +97,18 @@ export class DoctorController {
             schema: {type: 'array', items: getModelSchemaRef(Doctor)},
           },
         },
+        '400': {
+          description: 'Bad request, Doctors GET Failed',
+        },
+        '401': {
+          description: 'Unauthorized access, Doctors GET Failed',
+        },
+        '403': {
+          description: 'Forbidden request, Doctors GET Failed',
+        },
+        '500': {
+          description: 'Internal server error, Doctors GET Failed',
+        },
       },
     },
   })
@@ -88,6 +124,18 @@ export class DoctorController {
       '200': {
         description: 'Doctor PATCH success count',
         content: {'application/json': {schema: CountSchema}},
+      },
+      '400': {
+        description: 'Bad request, Doctors patch Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Doctors patch Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Doctors patch Failed',
+      },
+      '500': {
+        description: 'Internal server error, Doctors patch Failed',
       },
     },
   })
@@ -112,6 +160,18 @@ export class DoctorController {
         description: 'Doctor model instance',
         content: {'application/json': {schema: getModelSchemaRef(Doctor)}},
       },
+      '400': {
+        description: 'Bad request, Doctor GET Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Doctor GET Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Doctor GET Failed',
+      },
+      '500': {
+        description: 'Internal server error, Doctor GET Failed',
+      },
     },
   })
   async findById(@param.path.string('id') id: string): Promise<Doctor> {
@@ -122,6 +182,18 @@ export class DoctorController {
     responses: {
       '204': {
         description: 'Doctor PATCH success',
+      },
+      '400': {
+        description: 'Bad request, Doctor patch Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Doctor patch Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Doctor patch Failed',
+      },
+      '500': {
+        description: 'Internal server error, Doctor patch Failed',
       },
     },
   })
@@ -144,6 +216,18 @@ export class DoctorController {
       '204': {
         description: 'Doctor PUT success',
       },
+      '400': {
+        description: 'Bad request, Doctor PUT Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Doctor PUT  Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Doctor PUT  Failed',
+      },
+      '500': {
+        description: 'Internal server error, Doctor PUT Failed',
+      },
     },
   })
   async replaceById(
@@ -157,6 +241,18 @@ export class DoctorController {
     responses: {
       '204': {
         description: 'Doctor DELETE success',
+      },
+      '400': {
+        description: 'Bad request, Doctor DELETE Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Doctor DELETE Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Doctor DELETE Failed',
+      },
+      '500': {
+        description: 'Internal server error, Doctor DELETE Failed',
       },
     },
   })

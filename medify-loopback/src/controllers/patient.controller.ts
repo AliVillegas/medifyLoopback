@@ -23,7 +23,7 @@ import {PatientRepository} from '../repositories';
 export class PatientController {
   constructor(
     @repository(PatientRepository)
-    public patientRepository : PatientRepository,
+    public patientRepository: PatientRepository,
   ) {}
 
   @post('/patients', {
@@ -31,6 +31,18 @@ export class PatientController {
       '200': {
         description: 'Patient model instance',
         content: {'application/json': {schema: getModelSchemaRef(Patient)}},
+      },
+      '400': {
+        description: 'Bad request, Patient POST Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Patient POST Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Patient POST Failed',
+      },
+      '500': {
+        description: 'Internal server error, Patient POST Failed',
       },
     },
   })
@@ -40,7 +52,6 @@ export class PatientController {
         'application/json': {
           schema: getModelSchemaRef(Patient, {
             title: 'NewPatient',
-            
           }),
         },
       },
@@ -59,7 +70,8 @@ export class PatientController {
     },
   })
   async count(
-    @param.query.object('where', getWhereSchemaFor(Patient)) where?: Where<Patient>,
+    @param.query.object('where', getWhereSchemaFor(Patient))
+    where?: Where<Patient>,
   ): Promise<Count> {
     return this.patientRepository.count(where);
   }
@@ -74,10 +86,23 @@ export class PatientController {
           },
         },
       },
+      '400': {
+        description: 'Bad request, Patients GET Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Patients GET Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Patients GET Failed',
+      },
+      '500': {
+        description: 'Internal server error, Patients GET Failed',
+      },
     },
   })
   async find(
-    @param.query.object('filter', getFilterSchemaFor(Patient)) filter?: Filter<Patient>,
+    @param.query.object('filter', getFilterSchemaFor(Patient))
+    filter?: Filter<Patient>,
   ): Promise<Patient[]> {
     return this.patientRepository.find(filter);
   }
@@ -87,6 +112,18 @@ export class PatientController {
       '200': {
         description: 'Patient PATCH success count',
         content: {'application/json': {schema: CountSchema}},
+      },
+      '400': {
+        description: 'Bad request, Patients patch Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Patients patch Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Patients patch Failed',
+      },
+      '500': {
+        description: 'Internal server error, Patients patch Failed',
       },
     },
   })
@@ -99,7 +136,8 @@ export class PatientController {
       },
     })
     patient: Patient,
-    @param.query.object('where', getWhereSchemaFor(Patient)) where?: Where<Patient>,
+    @param.query.object('where', getWhereSchemaFor(Patient))
+    where?: Where<Patient>,
   ): Promise<Count> {
     return this.patientRepository.updateAll(patient, where);
   }
@@ -109,6 +147,18 @@ export class PatientController {
       '200': {
         description: 'Patient model instance',
         content: {'application/json': {schema: getModelSchemaRef(Patient)}},
+      },
+      '400': {
+        description: 'Bad request, Patient GET Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Patient GET Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Patient GET Failed',
+      },
+      '500': {
+        description: 'Internal server error, Patient GET Failed',
       },
     },
   })
@@ -120,6 +170,18 @@ export class PatientController {
     responses: {
       '204': {
         description: 'Patient PATCH success',
+      },
+      '400': {
+        description: 'Bad request, Patient patch Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Patient patch Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Patient patch Failed',
+      },
+      '500': {
+        description: 'Internal server error, Patient patch Failed',
       },
     },
   })
@@ -142,6 +204,18 @@ export class PatientController {
       '204': {
         description: 'Patient PUT success',
       },
+      '400': {
+        description: 'Bad request, Patient PUT Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Patient PUT  Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Patient PUT  Failed',
+      },
+      '500': {
+        description: 'Internal server error, Patient PUT Failed',
+      },
     },
   })
   async replaceById(
@@ -155,6 +229,18 @@ export class PatientController {
     responses: {
       '204': {
         description: 'Patient DELETE success',
+      },
+      '400': {
+        description: 'Bad request, Patient DELETE Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Patient DELETE Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Patient DELETE Failed',
+      },
+      '500': {
+        description: 'Internal server error, Patient DELETE Failed',
       },
     },
   })

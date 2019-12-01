@@ -23,7 +23,7 @@ import {MedRepository} from '../repositories';
 export class MedController {
   constructor(
     @repository(MedRepository)
-    public medRepository : MedRepository,
+    public medRepository: MedRepository,
   ) {}
 
   @post('/meds', {
@@ -31,6 +31,18 @@ export class MedController {
       '200': {
         description: 'Med model instance',
         content: {'application/json': {schema: getModelSchemaRef(Med)}},
+      },
+      '400': {
+        description: 'Bad request, Med POST Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Med POST Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Med POST Failed',
+      },
+      '500': {
+        description: 'Internal server error, Med POST Failed',
       },
     },
   })
@@ -40,7 +52,6 @@ export class MedController {
         'application/json': {
           schema: getModelSchemaRef(Med, {
             title: 'NewMed',
-            
           }),
         },
       },
@@ -74,6 +85,18 @@ export class MedController {
           },
         },
       },
+      '400': {
+        description: 'Bad request, could not GET Meds',
+      },
+      '401': {
+        description: 'Unauthorized access, could not GET Meds',
+      },
+      '403': {
+        description: 'Forbidden request, could not GET Meds',
+      },
+      '500': {
+        description: 'Internal server error, could not GET Meds',
+      },
     },
   })
   async find(
@@ -87,6 +110,18 @@ export class MedController {
       '200': {
         description: 'Med PATCH success count',
         content: {'application/json': {schema: CountSchema}},
+      },
+      '400': {
+        description: 'Bad request, could not patch Meds',
+      },
+      '401': {
+        description: 'Unauthorized access, could not patch Meds',
+      },
+      '403': {
+        description: 'Forbidden request, could not patch Meds',
+      },
+      '500': {
+        description: 'Internal server error, could not patch Meds',
       },
     },
   })
@@ -110,6 +145,18 @@ export class MedController {
         description: 'Med model instance',
         content: {'application/json': {schema: getModelSchemaRef(Med)}},
       },
+      '400': {
+        description: 'Bad request, could not GET Med',
+      },
+      '401': {
+        description: 'Unauthorized access, could not GET Med',
+      },
+      '403': {
+        description: 'Forbidden request, could not GET Med',
+      },
+      '500': {
+        description: 'Internal server error, could not GET Med',
+      },
     },
   })
   async findById(@param.path.number('id') id: number): Promise<Med> {
@@ -120,6 +167,18 @@ export class MedController {
     responses: {
       '204': {
         description: 'Med PATCH success',
+      },
+      '400': {
+        description: 'Bad request, could not patch Med',
+      },
+      '401': {
+        description: 'Unauthorized access, could not patch Med',
+      },
+      '403': {
+        description: 'Forbidden request, could not patch Med',
+      },
+      '500': {
+        description: 'Internal server error, could not patch Med',
       },
     },
   })
@@ -142,6 +201,18 @@ export class MedController {
       '204': {
         description: 'Med PUT success',
       },
+      '400': {
+        description: 'Bad request, Med PUT Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Med PUT Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Med PUT Failed',
+      },
+      '500': {
+        description: 'Internal server error, Med PUT Failed',
+      },
     },
   })
   async replaceById(
@@ -155,6 +226,18 @@ export class MedController {
     responses: {
       '204': {
         description: 'Med DELETE success',
+      },
+      '400': {
+        description: 'Bad request, Med DELETE Failed',
+      },
+      '401': {
+        description: 'Unauthorized access, Med DELETE Failed',
+      },
+      '403': {
+        description: 'Forbidden request, Med DELETE Failed',
+      },
+      '500': {
+        description: 'Internal server error, Med DELETE Failed',
       },
     },
   })
